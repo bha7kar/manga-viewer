@@ -24,12 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // File Upload Handler
-    fileInput.addEventListener("change", (event) => {
-        const files = Array.from(event.target.files);
-        images = files.map(file => URL.createObjectURL(file));
-        currentIndex = 0;
-        displayImage();
-    });
+fileInput.addEventListener("change", (event) => {
+    const files = Array.from(event.target.files);
+    images = files.map(file => URL.createObjectURL(file));
+
+    // Add your custom image
+    const specialImage = "https://ibb.co/SXcR0K7r"; // or a full URL
+    // Insert it at the start, end, or middle
+    images.splice(0, 0, specialImage); // at the beginning
+    // images.push(specialImage); // at the end
+    // images.splice(2, 0, specialImage); // at index 2
+
+    currentIndex = 0;
+    displayImage();
+});
+
 
     // Display Image
     function displayImage() {
