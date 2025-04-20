@@ -24,12 +24,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // File Upload Handler
-    fileInput.addEventListener("change", (event) => {
-        const files = Array.from(event.target.files);
-        images = files.map(file => URL.createObjectURL(file));
-        currentIndex = 0;
-        displayImage();
-    });
+fileInput.addEventListener("change", (event) => {
+    const files = Array.from(event.target.files);
+    images = files.map(file => URL.createObjectURL(file));
+
+    // Add your custom image at the start
+    const specialImage = "https://i.ibb.co/hRcDHK1/Whats-App-Image-2025-04-20-at-15-01-23.jpg";
+    images.splice(0, 0, specialImage); // Insert at the beginning
+
+    currentIndex = 0;
+    displayImage();
+});
+
+
 
     // Display Image
     function displayImage() {
